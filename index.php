@@ -267,7 +267,7 @@ class RequestException extends Exception
             return showReportGetError(answer.error);
         }
 
-        if (!answer.success) {
+        if (!answer.status) {
             return showReportGetError('Не вдалось виконати дію');
         }
 
