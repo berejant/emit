@@ -239,6 +239,10 @@ class RequestException extends Exception
             </div>
         </div>
     </form>
+
+    <hr>
+    © 2015 Антон Бережний
+
 </div>
 
 </body>
