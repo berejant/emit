@@ -55,7 +55,7 @@ if ('getReport' === $action) {
     }
 }
 
-if ($action) {
+if ($isAjaxRequest) {
     header('Content-Type:application/json;charset=utf-8');
     echo json_encode($answer);
     exit;
