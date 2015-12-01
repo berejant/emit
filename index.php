@@ -17,6 +17,8 @@ ini_set('log_errors', true);
 ini_set('display_errors', false);
 error_reporting(E_ALL);
 
+$isAjaxRequest = isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest';
+
 require __DIR__ . '/vendor/autoload.php';
 
 $action = filter_input(INPUT_POST, 'action');
@@ -45,6 +47,11 @@ if ('getReport' === $action) {
         error_log($e->getMessage() . PHP_EOL . $e->getTraceAsString());
 
         $answer['error'] = 'Внутрішня помилка серверу';
+    }
+
+    if(!$isAjaxRequest) {
+        header('Location: ' . $answer['link'], true, 301);
+        exit;
     }
 }
 
