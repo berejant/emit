@@ -279,7 +279,7 @@ class RequestException extends Exception
             return showReportGetError('Не знайдено посилання на файл');
         }
 
-        location.replace(answer.link);
+        location.assign(answer.link);
     }
 
     function getReportAjaxError(xhr, textError, errorThrown) {
