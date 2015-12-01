@@ -219,7 +219,7 @@ class RequestException extends Exception
 
         <div class="row">
             <div class="form-group col-xs-3">
-                <label for="varinatNo"">Номер варіанту:</label>
+                <label for="varinatNo">Номер варіанту:</label>
                 <input type="number" class="form-control" id="varinatNo" name="variantNo" min="21" max="45"
                        placeholder="21...45">
             </div>
