@@ -1,0 +1,15 @@
+{
+    "name": "berekant/emit",
+    "description": "Генератор PDF-отчетов для индивидуального задания по управлению расходами в КНЭУ",
+    "require": {
+        "phpoffice/phpexcel": "dev-master",
+        "cloudconvert/cloudconvert-php": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Anton Berezhnoj",
+            "email": "berejant@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}

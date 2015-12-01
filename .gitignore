@@ -1,0 +1,6 @@
+/vendor/
+/xlsx/*
+!/xlsx/template.xlsx
+/pdf/*
+!/pdf/.gitkeep
+/error.log
