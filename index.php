@@ -88,11 +88,13 @@ function genereteExcel($variantNo)
 
     $outputExcelFilePath = sprintf($config['outputExcel'], $variantNo);
 
-    if (file_exists($outputExcelFilePath)) {
+    $inputSourceExcel = $config['sourceExcel'];
+
+    if (file_exists($outputExcelFilePath) && filemtime($outputExcelFilePath) > filemtime($inputSourceExcel)) {
         return $outputExcelFilePath;
     }
 
-    $phpExcel = PHPExcel_IOFactory::load($config['sourceExcel'], 'template.xlsx');
+    $phpExcel = PHPExcel_IOFactory::load($inputSourceExcel, 'template.xlsx');
 
     $sheet = $phpExcel->getSheet(0);
 
@@ -112,13 +114,13 @@ function genereteExcel($variantNo)
  * @param $variantNo integer
  * @param $inputExcel string
  */
-function generatePdf($variantNo, $inputExcel)
+function generatePdf($variantNo, $inputExcelFilePath)
 {
     global $config;
 
     $outputPdfFilePath = sprintf($config['outputPdf'], $variantNo);
 
-    if (file_exists($outputPdfFilePath)) {
+    if (file_exists($outputPdfFilePath) && filemtime($outputPdfFilePath) && filemtime($inputExcelFilePath)) {
         return $outputPdfFilePath;
     }
 
@@ -129,7 +131,7 @@ function generatePdf($variantNo, $inputExcel)
         'outputformat' => 'pdf',
         'input' => 'upload',
         'filename' => 'input.xlsx',
-        'file' => fopen($inputExcel, 'r'),
+        'file' => fopen($inputExcelFilePath, 'r'),
     ))
         ->wait()
         ->download($outputPdfFilePath);
