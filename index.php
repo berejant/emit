@@ -99,7 +99,7 @@ function genereteExcel($variantNo)
     $sheet = $phpExcel->getSheet(0);
 
     $sheet->setCellValue('C1', $variantNo);
-    $sheet->setCellValue('C3', $variantNo - 19);
+    $sheet->setCellValue('C3', $variantNo + 1);
 
     unset($sheet);
 
