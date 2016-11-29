@@ -31,7 +31,7 @@ if ('getReport' === $action) {
 
     try {
         $variantNo = filter_input(INPUT_POST, 'variantNo', FILTER_VALIDATE_INT, array(
-            'options' => array('min_range' => 21, 'max_range' => 45)
+            'options' => array('min_range' => 1, 'max_range' => 90)
         ));
 
         if (!$variantNo) {
@@ -222,8 +222,8 @@ class RequestException extends Exception
         <div class="row">
             <div class="form-group col-xs-3">
                 <label for="varinatNo">Номер варіанту:</label>
-                <input type="number" class="form-control" id="varinatNo" name="variantNo" min="21" max="45"
-                       placeholder="21...45">
+                <input type="number" class="form-control" id="varinatNo" name="variantNo" min="1" max="90"
+                       placeholder="1...90">
             </div>
         </div>
 
